@@ -44,5 +44,10 @@
          When I open transformer folder
          Then XML files should be present
 
+         
+         Scenario: To verify he lenth of xml values created in PAIN folder
+         When I open pain folder
+         And I open xml file
+         Then value length should be correct
 
 		
