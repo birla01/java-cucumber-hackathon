@@ -2,6 +2,7 @@ package hackathon;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -99,7 +100,7 @@ public static int  getValidTransactionCount() {
 		e.printStackTrace();
 	}
 
-	try (BufferedReader br2 = new BufferedReader(new FileReader(new File(dir)))) {
+	/*try (BufferedReader br2 = new BufferedReader(new FileReader(new File(dir)))) {
 		int iCountTotalRows = br2.lines().toArray().length;
 		System.out.println("iCountTotalRows " + iCountTotalRows);
 
@@ -107,12 +108,12 @@ public static int  getValidTransactionCount() {
 		System.out.println("Rejected transaction count " + iRejectedFileCount);
 	} catch (Exception e) {
 		e.printStackTrace();
-	}
+	}*/
 	return iValidFileCount;
 
 }
 
-public static int  getInValidTransactionCount() {
+public static int  getInValidTransactionCount() throws FileNotFoundException, IOException {
 
 	String currentDir = System.getProperty("user.dir");
 	//System.out.println("Current dir using System:" + currentDir + "\\src\\test\\java\\hackathon\\input.txt");
@@ -138,9 +139,7 @@ public static int  getInValidTransactionCount() {
 		System.out.println("Count of valid rows " + iValidFileCount);
 
 		
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
+	} 
 
 	try (BufferedReader br2 = new BufferedReader(new FileReader(new File(dir)))) {
 		int iCountTotalRows = br2.lines().toArray().length;
